@@ -4,11 +4,14 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { gsap } from "gsap";
 import { Box, Image, Text } from "@chakra-ui/react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const AnimatedBackground = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    
     let container;
     let camera, scene, renderer, controls;
     let starGeometry, starMaterial, stars;
@@ -84,7 +87,7 @@ const AnimatedBackground = () => {
         cosmonaut = gltf.scene;
 
         cosmonaut.scale.set(4, 4, 4);
-        cosmonaut.position.set(5, 0, -10);
+        cosmonaut.position.set(7, -10, -10);
 
         scene.add(cosmonaut);
 
@@ -140,12 +143,15 @@ const AnimatedBackground = () => {
     };
 
     init();
-
+    AOS.init({ duration: 2000 });
     return () => {
+      
       container.removeChild(renderer.domElement);
       window.removeEventListener("resize", handleWindowResize);
       window.removeEventListener("mousemove", handleMouseMove);
     };
+
+    
   }, []);
 
   return (
@@ -173,20 +179,22 @@ const AnimatedBackground = () => {
             marginRight: "30px",
           }}
         >
-          <Image
-            src="/avatar.png"
-            alt="Your Image"
-            borderRadius="full"
-            boxSize="150px"
-            marginRight="20px"
-          />
-          <Text
-            fontWeight="bold"
-            textTransform="uppercase"
-            letterSpacing="wide"
-          >
-            Portfolio: Seif Fekaier
-          </Text>
+       
+            <Image
+              src="/avatar.png"
+              alt="Your Image"
+              borderRadius="full"
+              boxSize="150px"
+              marginRight="20px"
+            />
+            <Text
+              fontWeight="bold"
+              textTransform="uppercase"
+              letterSpacing="wide"
+            >
+              Seif Fekaier
+            </Text>
+          
         </Box>
       </Box>
     </Box>
