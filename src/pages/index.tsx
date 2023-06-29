@@ -1,13 +1,13 @@
-
+import { Box } from '@chakra-ui/react'
 import ContainerBlock from '../../components/ContainerBlock'
-import BoutonSwitchTheme from '../../components/BoutonSwitchTheme'
-
+import AnimatedBackground from '../../components/animated/AnimatedBackgroun'
 
 
 export default function Home() {
   return (
     <ContainerBlock>
-        {/* <BoutonSwitchTheme/> */}
+   
+        <AnimatedBackground/>
     </ContainerBlock>
   )
 }
