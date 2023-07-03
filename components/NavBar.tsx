@@ -8,13 +8,14 @@ import {
   Image
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import NextLink from "next/link"
 
 const Navbar = () => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Box
-      bg="white"
+      bg="transparent"
       boxShadow="md"
       py={4}
       px={8}
@@ -24,20 +25,27 @@ const Navbar = () => {
     >
       <Flex align="center" top={8}>
         <Box fontWeight="bold" fontSize="lg">
-          <Image
-            borderRadius="full"
-            boxSize="50px"
-            src="/portfolio.gif"
-            alt="Dan Abramov"
-          />
+          <NextLink href={"/"}>
+            <Image
+              borderRadius="full"
+              boxSize="50px"
+              src="/portfolio.gif"
+              alt="Dan Abramov"
+            />
+          </NextLink>
         </Box>
         <Spacer />
         <Box display={{ base: "none", md: "block" }}>
-          <Flex>
-            <Box mx={4}>Accueil</Box>
-            <Box mx={4}>À propos</Box>
-            <Box mx={4}>Services</Box>
-            <Box mx={4}>Contact</Box>
+          <Flex color={"white"}>
+            <Box mx={4}><NextLink href={"/"}>
+              Acceuil
+            </NextLink></Box>
+            <Box mx={4}><NextLink href={"/"}>
+              Projets
+            </NextLink></Box>
+            <Box mx={4}><NextLink href={"/"}>
+              Contact
+            </NextLink></Box>
           </Flex>
         </Box>
         <IconButton
@@ -52,18 +60,21 @@ const Navbar = () => {
       </Flex>
       <Collapse in={isOpen} animateOpacity>
         <Box mt={4}>
-          <Flex direction="column">
+          <Flex direction="column" color={"white"}>
             <Box mx={4} my={2}>
-              Accueil
+              <NextLink href={"/"}>
+                Acceuil
+              </NextLink>
             </Box>
             <Box mx={4} my={2}>
-              À propos
+              <NextLink href={"/"}>
+                Projets
+              </NextLink>
             </Box>
             <Box mx={4} my={2}>
-              Services
-            </Box>
-            <Box mx={4} my={2}>
-              Contact
+              <NextLink href={"/"}>
+                Contact
+              </NextLink>
             </Box>
           </Flex>
         </Box>

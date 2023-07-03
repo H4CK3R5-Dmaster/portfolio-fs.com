@@ -6,8 +6,8 @@ import AnimatedBackground from '../../components/animated/AnimatedBackgroun'
 export default function Home() {
   return (
     <ContainerBlock>
-   
         <AnimatedBackground/>
+        
     </ContainerBlock>
   )
 }

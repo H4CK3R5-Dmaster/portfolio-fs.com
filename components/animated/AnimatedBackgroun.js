@@ -100,6 +100,7 @@ const AnimatedBackground = () => {
         });
         gsap.to(cosmonaut.position, { x: 2, duration: 2, ease: "power2.out" });
       });
+      
     };
 
     const addLight = () => {
